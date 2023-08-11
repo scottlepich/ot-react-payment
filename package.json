@@ -6,6 +6,10 @@
   "author": "slepich@opentable.com",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opentable/ot-react-payment"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run build:esbuild",
     "build:esbuild": "node scripts/build.js",
