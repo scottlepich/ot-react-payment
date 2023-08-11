@@ -26,19 +26,40 @@ Anticipated places for use:
 -------------------------------------------------------------------------------
 
 ## Usage
-TODO: Add detail and diagrams 
+
+### Architecture
+```mermaid
+sequenceDiagram
+	Note left of Consumer: (CFE, R3, OT4R)
+	box Purple OpenTable 
+		participant Consumer
+		participant @opentable/react-payment
+	end
+    participant Provider 
+	Note right of Provider: (Spreedly, Stripe)
+    Consumer->>@opentable/react-payment: form with placeholders
+    loop iframe content
+		@opentable/react-payment->>Provider: inject script, update placeholders with iframes
+        Provider->>@opentable/react-payment: payment provider card token & metadata 
+    end
+    @opentable/react-payment-->>Consumer: <PaymentProviderContext/> w/token & metadata
+    @opentable/react-payment-->>Consumer: usePayment hook
+```
+
+TODO: add usages and howto
+
+- [ ] Context
+- [ ] Hook
+- [ ] Selecting a provider
+- [ ] Provider events
+- [ ] Adding a provider
+- [ ] ?
 
 ### Install
 Artifactory:
 - [npm-opentable/@opentable/react-payment/](http://artifactory.otenv.com/ui/repos/tree/General/npm-opentable/@opentable/react-payment)
 
 
-- Context
-- Hook
-- Selecting a provider
-- Provider events
-- Adding a provider
-- ?
 
 -------------------------------------------------------------------------------
 
@@ -54,9 +75,9 @@ Using a test form hacked into CFE returns a token.
 Spike is successful, next steps will be to attempt to integrate this lib with CFE in the network flow.
 
 TODO:
-- Complete transaction with token
-- Other payment flows in CFE
-- Use in other OT react sites
+- [ ] Complete transaction with token
+- [ ] Other payment flows in CFE
+- [ ] Use in other OT react sites
 
 #### Documentation
 - [Spreedly iframe payment guide](https://docs.spreedly.com/guides/adding-payment-methods/iframe/)
