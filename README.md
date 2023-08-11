@@ -28,6 +28,11 @@ Anticipated places for use:
 ## Usage
 TODO: Add detail and diagrams 
 
+### Install
+Artifactory:
+- [npm-opentable/@opentable/react-payment/](http://artifactory.otenv.com/ui/repos/tree/General/npm-opentable/@opentable/react-payment)
+
+
 - Context
 - Hook
 - Selecting a provider
