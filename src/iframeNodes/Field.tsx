@@ -20,6 +20,7 @@ export interface Props {
 export type FieldProps = Omit<Props, "id" | "fieldName">;
 
 const Field = ({ id, label, placeholder, css, fieldName }: Props) => {
+  // TODO: pick provider
   const { setLabel, setPlaceholder, setStyle } = useProvider(
     PaymentType.Spreedly,
   );
