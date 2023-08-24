@@ -4,6 +4,11 @@ export enum PaymentType {
   // ...others?
 }
 
+export enum PaymentFieldName {
+  CVV = "cvv",
+  NUMBER = "number",
+}
+
 export enum ActionTypes {
   CLEAR = "clear",
   SET_3DS_EVENTS = "set_3ds_events",

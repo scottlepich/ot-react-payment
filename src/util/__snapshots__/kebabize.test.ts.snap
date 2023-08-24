@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kebabize should convert camel case to kebab case 1`] = `"camel-case"`;
+
+exports[`kebabize should convert pascal case to kebab case 1`] = `"pascal-case"`;
+
+exports[`kebabize should not change kebab case 1`] = `"kebab-case"`;

@@ -81,6 +81,24 @@ export const tokenizeCard = (creditCard: any) => {
   }
 };
 
+export const setLabel = (id: string, label: string) => {
+  if (window.Spreedly) {
+    window.Spreedly.setLabel(id, label);
+  }
+};
+
+export const setPlaceholder = (id: string, placeholder: string) => {
+  if (window.Spreedly) {
+    window.Spreedly.setPlaceholder(id, placeholder);
+  }
+};
+
+export const setStyle = (id: string, style: string) => {
+  if (window.Spreedly) {
+    window.Spreedly.setStyle(id, style);
+  }
+};
+
 export const startThreeDS = (
   transactionToken: string,
   threeDSLifecycle: any,

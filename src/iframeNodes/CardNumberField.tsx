@@ -1,5 +1,13 @@
-import { CARD_NUMBER_FIELD_ID } from "../constants";
+import { CARD_NUMBER_FIELD_ID, PaymentFieldName } from "../constants";
 
-export const CardNumberField = () => <div id={CARD_NUMBER_FIELD_ID} />;
+import Field, { FieldProps } from "./Field";
+
+export const CardNumberField = (props: FieldProps) => (
+  <Field
+    fieldName={PaymentFieldName.NUMBER}
+    id={CARD_NUMBER_FIELD_ID}
+    {...props}
+  />
+);
 
 export type CardNumberFieldType = typeof CardNumberField;
