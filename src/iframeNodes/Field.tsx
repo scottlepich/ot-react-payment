@@ -34,7 +34,7 @@ const Field = ({ id, label, placeholder, css, fieldName }: Props) => {
 
   useEffect(() => {
     if (!label) {
-      throw new Error("a11y label is required for CVV field");
+      throw new Error(`a11y label is required for ${fieldName} field.`);
     }
     setLabel(fieldName, label);
   }, [label]);
