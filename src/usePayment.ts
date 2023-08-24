@@ -4,22 +4,16 @@ import useScript from "react-script-hook";
 
 import { ActionTypes, PaymentType } from "./constants";
 
+import useAssertWindowGlobal from "./useAssertWindowGlobal";
+
 import useProvider from "./useProvider";
 
 import usePaymentContext from "./context/usePaymentContext";
 
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 
-const useHasWindowGlobal = () => typeof window !== "undefined";
-
 const usePayment = (paymentType: PaymentType) => {
-  const hasWindowGlobal = useHasWindowGlobal();
-
-  useEffect(() => {
-    if (!hasWindowGlobal) {
-      throw new Error("Must be run in a browser with `window` object.");
-    }
-  }, [hasWindowGlobal]);
+  useAssertWindowGlobal();
 
   // Initialize context
   const { state, dispatch } = usePaymentContext();
@@ -41,7 +35,7 @@ const usePayment = (paymentType: PaymentType) => {
 
   // Initialize payment provider
   useEffect(() => {
-    if (state.hasLoadedScript && hasWindowGlobal) {
+    if (state.hasLoadedScript) {
       initialize();
       attachEvents({ state, dispatch });
     }

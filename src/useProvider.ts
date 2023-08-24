@@ -3,15 +3,16 @@ import { PaymentType } from "./constants";
 import { SPREEDLY_SCRIPT_URL } from "./spreedly/constants";
 // TODO: import { STRIPE_SCRIPT_URL } from "./stripe/constants";
 
+import useAssertWindowGlobal from "./useAssertWindowGlobal";
+
 import * as spreedly from "./spreedly/client";
 
 const useProvider = (paymentType: PaymentType) => {
+  useAssertWindowGlobal();
+
   switch (paymentType) {
     case PaymentType.Spreedly:
       return {
-        hasWindowModule:
-          typeof window !== "undefined" &&
-          typeof window.Spreedly !== "undefined", // false, //typeof window?.Spreedly !== "undefined",
         initialize: spreedly.initializeSpreedly,
         attachEvents: spreedly.attachEvents,
         tokenizeCard: spreedly.tokenizeCard,

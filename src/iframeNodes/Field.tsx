@@ -1,7 +1,12 @@
 import { CSSProperties, useEffect } from "react";
+
 import { PaymentType, PaymentFieldName } from "../constants";
+
 import kebabize from "../util/kebabize";
+
 import useProvider from "../useProvider";
+
+import useAssertWindowGlobal from "../useAssertWindowGlobal";
 
 // TODO: [BUX-5102] Research if we can leverage an existing library to convert `CSSProperties` to string
 const serializeStyles = (css: CSSProperties) =>
@@ -20,6 +25,8 @@ export interface Props {
 export type FieldProps = Omit<Props, "id" | "fieldName">;
 
 const Field = ({ id, label, placeholder, css, fieldName }: Props) => {
+  useAssertWindowGlobal();
+
   // TODO: pick provider
   const { setLabel, setPlaceholder, setStyle } = useProvider(
     PaymentType.Spreedly,
