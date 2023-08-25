@@ -1,25 +1,35 @@
 import { PaymentType } from "./constants";
 
 import { SPREEDLY_SCRIPT_URL } from "./spreedly/constants";
-// TODO: import { STRIPE_SCRIPT_URL } from "./stripe/constants";
 
 import useAssertWindowGlobal from "./useAssertWindowGlobal";
 
 import * as spreedly from "./spreedly/client";
 
-const useProvider = (paymentType: PaymentType) => {
+// TODO: type for all providers
+export interface ProviderReturnType {
+  attachEvents: typeof spreedly.attachEvents;
+  initialize: typeof spreedly.initializeSpreedly;
+  setLabel: typeof spreedly.setLabel;
+  setPlaceholder: typeof spreedly.setPlaceholder;
+  setStyle: typeof spreedly.setStyle;
+  src: typeof SPREEDLY_SCRIPT_URL;
+  tokenizeCard: typeof spreedly.tokenizeCard;
+}
+
+const useProvider = (paymentType: PaymentType): ProviderReturnType => {
   useAssertWindowGlobal();
 
   switch (paymentType) {
     case PaymentType.Spreedly:
       return {
-        initialize: spreedly.initializeSpreedly,
         attachEvents: spreedly.attachEvents,
-        tokenizeCard: spreedly.tokenizeCard,
-        setStyle: spreedly.setStyle,
+        initialize: spreedly.initializeSpreedly,
         setLabel: spreedly.setLabel,
         setPlaceholder: spreedly.setPlaceholder,
+        setStyle: spreedly.setStyle,
         src: SPREEDLY_SCRIPT_URL,
+        tokenizeCard: spreedly.tokenizeCard,
       };
     // TODO: case PaymentType.Stripe:
     // TODO: normalize the interface for stripe
