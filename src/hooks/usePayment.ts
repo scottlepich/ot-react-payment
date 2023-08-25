@@ -2,13 +2,13 @@ import { useEffect } from "react";
 
 import useScript from "react-script-hook";
 
-import { ActionTypes, PaymentType } from "./constants";
+import { ActionTypes, PaymentType } from "../constants";
 
 import useAssertWindowGlobal from "./useAssertWindowGlobal";
 
 import useProvider from "./useProvider";
 
-import usePaymentContext from "./context/usePaymentContext";
+import usePaymentContext from "../context/usePaymentContext";
 
 const { SET_SRC_LOADED, SET_ERRORS } = ActionTypes;
 

@@ -1,6 +1,6 @@
 import PaymentContextProvider from "./context/PaymentContextProvider";
 
-import usePayment from "./usePayment";
+import usePayment from "./hooks/usePayment";
 
 import { PaymentType } from "./constants";
 

@@ -4,7 +4,7 @@ import { PaymentType, PaymentFieldName } from "../constants";
 
 import kebabize from "../util/kebabize";
 
-import useProvider from "../useProvider";
+import useProvider from "../hooks/useProvider";
 
 // TODO: [BUX-5102] Research if we can leverage an existing library to convert `CSSProperties` to string
 const serializeStyles = (css: CSSProperties) =>

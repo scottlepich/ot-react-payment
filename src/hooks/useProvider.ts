@@ -1,10 +1,10 @@
-import { PaymentType } from "./constants";
+import { PaymentType } from "../constants";
 
-import { SPREEDLY_SCRIPT_URL } from "./spreedly/constants";
+import { SPREEDLY_SCRIPT_URL } from "../spreedly/constants";
 
 import useAssertWindowGlobal from "./useAssertWindowGlobal";
 
-import * as spreedly from "./spreedly/client";
+import * as spreedly from "../spreedly/client";
 
 // TODO: type for all providers
 export interface ProviderReturnType {

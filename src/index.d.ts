@@ -2,7 +2,7 @@ declare module "@opentable/react-payment";
 
 import PaymentContextProvider from "./context/PaymentContextProvider";
 
-import usePayment from "./usePayment";
+import usePayment from "./hooks/usePayment";
 
 import { CVVField, CardNumberField } from "./iframeNodes";
 
